@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+</head>
+<body>
+<div class="container">
+    <form class="form-horizontal" role="form" method="POST"  th:object="${bloodbag}" th:action="@{/new}"> <!--th:action="@{/new}"-->
+        <h3>New blood bag registration</h3>
+        <div class="form-group">
+            <label  class="col-sm-3 control-label">Blood bag ID</label>
+            <div class="col-sm-9">
+                <input type="text" th:fields="*{bagid}"  id="bagid" placeholder="Bag ID" class="form-control" autofocus>
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-3 control-label">Blood bag type</label>
+            <div class="col-sm-9">
+                <input type="text" th:fields="*{bagtype}" id="bagtype" placeholder="Erythrocytes, platelets, plazma" class="form-control" autofocus>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Rh phenotype </label>
+            <div class="col-sm-9">
+                <input type="text" th:fields="*{phenotype}" id="phenotype" placeholder="Rh phenotype" class="form-control" name= "Rh phenotype">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Quantity</label>
+            <div class="col-sm-9">
+                <input type="text" th:fields="*{quantity}" id="quantity" placeholder="Quantity" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Institution</label>
+            <div class="col-sm-9">
+                <input type="text" th:fields="*{institution}" id="institution" placeholder="Institution" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Date of manufacture</label>
+            <div class="col-sm-9">
+                <input type="date" th:fields="*{madedate}" id="madedate" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Expiration date</label>
+            <div class="col-sm-9">
+                <input type="date" th:fields="*{expdate}" id="expdate" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Comment </label>
+            <div class="col-sm-9">
+                <input type="text" th:fields="*{comment}" id="comment" placeholder="Comment" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">ABO </label>
+            <div class="col-sm-9">
+                <input type="text" th:fields="*{abo}" id="abo" placeholder="0, A, B, AB" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3">R(h)</label>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" th:fields="*{rh}" id="rh" value="(Rh+)">(Rh+)
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" th:fields="*{rh}" value="(Rh-)">(Rh-)
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- /.form-group -->
+        <div class="form-group">
+        </div>
+        <button class="btn btn-lg btn-primary " type="submit" style="background-color: #800000">Register</button>
+    </form> <!-- /form -->
+</div> <!-- ./container -->
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">              </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/new}"> Registration <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Help</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+        </ul>
+        <span class="navbar-text">
+      <h7>Current user:
+            <span th:utext="${userName}">   </span>
+          </h7>
+            <a th:href="@{/logout}">   Sign out</a>
+          <!--<button class="btn btn-cn btn-primary btn-sm"  type="logout">Sign out</button>-->
+
+    </span>
+    </div>
+</nav>
+
+<div align="center">
+    <h1>Registration book</h1>
+<!--    <a href="/new">Create New Product</a>-->
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>No.</th>
+            <th>Institution</th>
+            <th>Date of manufacture</th>
+            <th>Expiration date</th>
+            <th>Blood bag type</th>
+            <th>Phenotype</th>
+            <th>Quantity</th>
+            <th>ABO</th>
+            <th>R(h)</th>
+            <th>Bag ID</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${bloodBagList}">
+            <td th:text="${BloodBag.id}">Product ID</td>
+            <td th:text="${BloodBag.institution}">Name</td>
+            <td th:text="${BloodBag.madedate}">Brand</td>
+            <td th:text="${BloodBag.expdate}">Made in</td>
+            <td th:text="${BloodBag.bagtype}">Price</td>
+            <td th:text="${BloodBag.phenotype}">Product ID</td>
+            <td th:text="${BloodBag.quantity}">Name</td>
+            <td th:text="${BloodBag.abo}">Brand</td>
+            <td th:text="${BloodBag.rh}">Made in</td>
+            <td th:text="${BloodBag.bagid}">Price</td>
+            <td th:text="${BloodBag.comment}">Price</td>
+            <td>
+                <a th:href="/@{'/edit/' + ${product.id}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="/@{'/delete/' + ${product.id}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--<div class="container">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-8"></div>
+        </div>
+<div class="container">
+    <div class="row">
+    <div class="col-12 col-md-7"></div>
+    <div class="col-6 col-md-5">
+        <h7>Prisijungęs vartotojas:
+            <span th:utext="${userName}"></span>
+            <a th:href="@{/logout}">Sign out</a>
+            &lt;!&ndash;<button class="btn btn-cn btn-primary btn-sm"  type="logout">Sign out</button>&ndash;&gt;
+        </h7>
+    </div>
+    <button class="btn btn-lg btn-primary btn-sm" type="@{/logout}">Sign out</button>
+    <a th:href="@{/logout}">Sign out</a>
+</div>
+</div>
+    </div>
+</div>-->
+</body>
+
+</html>
